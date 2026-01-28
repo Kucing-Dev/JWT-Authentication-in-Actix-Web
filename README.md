@@ -126,4 +126,47 @@ or
 ```bash
 Authorization header missing or malformed
 ```
+## 🧪 Testing with cURL
+Login
+```bash
+curl -X POST http://127.0.0.1:8080/login \
+-H "Content-Type: application/json" \
+-d '{"username":"admin","password":"password"}'
+```
 
+Access Protected Endpoint
+```bash
+curl -H "Authorization: Bearer <TOKEN>" \
+http://127.0.0.1:8080/protected
+```
+
+## 🛡️ JWT Configuration
+- Algorithm: HS256
+- Secret Key: supersecretkeyyoushouldchange
+- Expiration: 1 hour
+  ```bash
+  exp: (chrono::Utc::now() + chrono::Duration::hours(1))
+    .timestamp() as usize
+  ```
+
+### ⚠️ Security Notes
+
+- Secret key is still hardcoded
+- Not using password hashing yet
+- JWT has not been made into middleware
+- Suitable for learning & lab environment
+
+### 🔜 Possible Improvements
+
+- JWT Middleware (Actix Transform)
+- Password hashing (bcrypt)
+- Refresh token
+- Role-based access control
+- JWT security testing (pentest perspective)
+
+### 📚 License
+MIT License
+
+### ✨ Author
+Created by Khairunnisya Lubis to learn Rust backend & JWT authentication
+Happy hacking 🚀
