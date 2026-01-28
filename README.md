@@ -169,4 +169,5 @@ MIT License
 
 ### ✨ Author
 Created by Khairunnisya Lubis to learn Rust backend & JWT authentication
+
 Happy hacking 🚀
